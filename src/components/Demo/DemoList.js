@@ -5,12 +5,26 @@ import classes from './DemoList.module.css';
 const DemoList = (props) => {
 
   const {items}=props
-
+  const {cond}=props
   const sortedList =  useMemo(()=>
   {
     console.log('sorting')
-    return items.sort((a, b) => a - b)
-  },[items])   
+    if(cond===true)
+    {
+      return items.sort((a, b) => a - b)
+    }
+    else{
+      return items.sort((a, b) => b - a)
+    }
+    
+  },[items,cond])   
+
+  //  sortedList =  useMemo(()=>
+  // {
+  //   console.log('sorting')
+  //   return items.sort((a, b) => b - a)
+  // },[items])   
+
 
   // const sortedList=props.items.sort((a, b) => a - b);
   
